@@ -1,0 +1,140 @@
+﻿Table,Column,Type,Length,Precision-Scale,Nullable,PK,StructType,Description
+calendar,listing_id,INTEGER,,,0,1,IntegerType(),ID of Airbnb listing
+calendar,date,DATE,,,0,1,DateType(),Calendar date for reservations
+calendar,available,BOOLEAN,,,1,0,BooleanType(),"Boolean value for availability of booking. The Airbnb calendar for a listing does not differentiate between a booked night vs an unavailable night, therefore these bookings have been counted as ""unavailable"". This serves to understate the Availability metric because popular listings will be ""booked"" rather than being ""blacked out"" by a host."
+calendar,price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Price per night of booking or reservation
+calendar,adjusted_price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Adjusted price per night of booking or reservation
+calendar,minimum_nights,INTEGER,,,1,0,IntegerType(),Minimum number of nights for booking
+calendar,maximum_nights,INTEGER,,,1,0,IntegerType(),Maximum number of nights for booking
+listings,id,INTEGER,,,0,1,IntegerType(),ID of Airbnb listing
+listings,name,VARCHAR,255,,1,0,StringType(),Name of Airbnb listing
+listings,host_id,INTEGER,,,1,0,IntegerType(),ID of Airbnb host
+listings,host_name,VARCHAR,255,,1,0,StringType(),Name of Airbnb host
+listings,neighbourhood_group,VARCHAR,255,,1,0,StringType(),Airbnb neighbourhood names. Not used because of their inaccuracies
+listings,neighbourhood,VARCHAR,255,,1,0,StringType(),Approximate zipcode listing is located in. Town for non-U.S. location
+listings,latitude,DECIMAL,,"(9,6)  ",1,0,FloatType(),Approximate latitude of listing
+listings,longitude,DECIMAL,,"(9,6)  ",1,0,FloatType(),Approximate longitude of listing
+listings,room_type,VARCHAR,20,,1,0,StringType(),"Room type of listing. One of (Entire home/apt, Private room, Hotel room, Shared room)"
+listings,price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Price per night of booking or reservation
+listings,minimum_nights,INTEGER,,,1,0,IntegerType(),Minimum number of nights for booking
+listings,number_of_reviews,INTEGER,,,1,0,IntegerType(),Total number of reviews for listing
+listings,last_review,DATE,,,1,0,DateType(),Date of last review for listing
+listings,reviews_per_month,FLOAT,,,1,0,FloatType(),Number of reviews per month
+listings,calculated_host_listings_count,FLOAT,,,1,0,FloatType(),Number of hosts managing the listing?
+listings,availability_365,INTEGER,,,1,0,IntegerType(),Number of days listing is available in the year
+neighbourhoods,neighbourhood_group,VARCHAR,255,,1,0,StringType(),Airbnb neighbourhood names. Not used because of their inaccuracies
+neighbourhoods,neighbourhood,VARCHAR,255,,0,1,StringType(),Approximate zipcode listing is located in. Town for non-U.S. location
+reviews,listing_id,INTEGER,,,0,1,IntegerType(),ID of Airbnb listing
+reviews,date,DATE,,,1,0,DateType(),Date of review for listing. Reviewers can only leave a review within 14 days after checking out.
+reviews_full,listing_id,INTEGER,,,1,0,IntegerType(),ID of Airbnb listing
+reviews_full,id,INTEGER,,,0,1,IntegerType(),ID of review
+reviews_full,date,DATE,,,1,0,DateType(),Date of review for listing
+reviews_full,reviewer_id,INTEGER,,,1,0,IntegerType(),ID of reviewer
+reviews_full,reviewer_name,VARCHAR,255,,1,0,StringType(),Name of reviewer
+reviews_full,comments,TEXT,,,1,0,StringType(),Comments from reviewer
+listings_full,id,INTEGER,,,0,1,IntegerType(),ID of Airbnb listing
+listings_full,listing_url,TEXT,,,1,0,StringType(),URL of listing on Airbnb
+listings_full,scrape_id,BIGINT,,,1,0,LongType(),ID of webscrape from Airbnb website
+listings_full,last_scraped,DATE,,,1,0,DateType(),Date of webscrape from Airbnb website
+listings_full,name,VARCHAR,255,,1,0,StringType(),Name of Airbnb listing
+listings_full,summary,TEXT,,,1,0,StringType(),Description of Airbnb listing from the host
+listings_full,space,TEXT,,,1,0,StringType(),Description of space of Airbnb listing from the host
+listings_full,description,TEXT,,,1,0,StringType(),Further description of Airbnb listing from the host
+listings_full,experiences_offered,TEXT,,,1,0,StringType(),Airbnb Experiences available at this listing
+listings_full,neighborhood_overview,TEXT,,,1,0,StringType(),Description of neighborhood of Airbnb listing from the host
+listings_full,notes,TEXT,,,1,0,StringType(),Special notes about the listing from the Airbnb host
+listings_full,transit,TEXT,,,1,0,StringType(),Description of available transit from the Airbnb host
+listings_full,access,TEXT,,,1,0,StringType(),Description of access from the Airbnb host
+listings_full,interaction,TEXT,,,1,0,StringType(),Description of ways to interact with or contact host from the Airbnb host
+listings_full,house_rules,TEXT,,,1,0,StringType(),Description of house rules during guests' stay at listing from the Airbnb host
+listings_full,thumbnail_url,TEXT,,,1,0,StringType(),URL of thumbnail photo of listing? All currently null
+listings_full,medium_url,TEXT,,,1,0,StringType(),URL of main picture of listing (medium size)? All currently null
+listings_full,picture_url,TEXT,,,1,0,StringType(),URL of main picture of listing
+listings_full,xl_picture_url,TEXT,,,1,0,StringType(),URL of main picture of listing (XL size)? All currently null
+listings_full,host_id,INTEGER,,,1,0,IntegerType(),ID of Airbnb host
+listings_full,host_url,TEXT,,,1,0,StringType(),URL of Airbnb host
+listings_full,host_name,VARCHAR,255,,1,0,StringType(),Name of Airbnb host
+listings_full,host_since,DATE,,,1,0,DateType(),Date when host first joined Airbnb
+listings_full,host_location,VARCHAR,255,,1,0,StringType(),City of Airbnb host
+listings_full,host_about,TEXT,,,1,0,StringType(),Summary of Airbnb host
+listings_full,host_response_time,VARCHAR,255,,1,0,StringType(),"Typical host response time. One of (a few days or more, within a day, within a few hours, within an hour)"
+listings_full,host_response_rate,FLOAT,,,1,0,FloatType(),Percentage that host responds on time
+listings_full,host_acceptance_rate,FLOAT,,,1,0,FloatType(),Rate at which host accepts reservation requests? All currently null
+listings_full,host_is_superhost,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if host is considered Superhost or not
+listings_full,host_thumbnail_url,TEXT,,,1,0,StringType(),URL of Airbnb host thumbnail photo (small version)
+listings_full,host_picture_url,TEXT,,,1,0,StringType(),URL of Airbnb host thumbnail photo (medium version)
+listings_full,host_neighbourhood,VARCHAR,255,,1,0,StringType(),Neighborhood host is located in
+listings_full,host_listings_count,INTEGER,,,1,0,IntegerType(),Number of hosts managing the listing?
+listings_full,host_total_listings_count,INTEGER,,,1,0,IntegerType(),Total number of hosts managing the listing?
+listings_full,host_verifications,TEXT,,,1,0,StringType(),"Text array of all the ways host has been verified, such as email, phone, government_id, etc.?"
+listings_full,host_has_profile_pic,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if host has a profile picture
+listings_full,host_identity_verified,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if host has verified identity
+listings_full,street,VARCHAR,255,,1,0,StringType(),"Street address of listing, but really is just city/town listing is located in since location data has been anonymized"
+listings_full,neighbourhood,VARCHAR,255,,1,0,StringType(),Neighborhood listing is located in
+listings_full,neighbourhood_cleansed,VARCHAR,255,,1,0,StringType(),Approximate zipcode listing is located in. Town for non-U.S. location
+listings_full,neighbourhood_group_cleansed,VARCHAR,255,,1,0,StringType(),Cleansed version of neighbourhood group. All currently null
+listings_full,city,VARCHAR,255,,1,0,StringType(),City that the listing is located in
+listings_full,state,VARCHAR,255,,1,0,StringType(),State or province that the listing is located in
+listings_full,zipcode,VARCHAR,255,,1,0,StringType(),Zipcode that the listing is located in. Town for non-U.S. location
+listings_full,market,VARCHAR,255,,1,0,StringType(),Market that the listing is located in
+listings_full,smart_location,VARCHAR,255,,1,0,StringType(),City + state that the listing is located in
+listings_full,country_code,VARCHAR,255,,1,0,StringType(),Country code that the listing is located in
+listings_full,country,VARCHAR,255,,1,0,StringType(),Country that the listing is located in
+listings_full,latitude,DECIMAL,,"(9,6)  ",1,0,FloatType(),Apprximate latitude of listing
+listings_full,longitude,DECIMAL,,"(9,6)  ",1,0,FloatType(),Approximate longitude of listing
+listings_full,is_location_exact,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if coordinates for listing are exact
+listings_full,property_type,VARCHAR,255,,1,0,StringType(),"Property type of listing such as house, guesthouse, boat, etc."
+listings_full,room_type,VARCHAR,20,,1,0,StringType(),"Room type of listing. One of (Entire home/apt, Private room, Hotel room, Shared room)"
+listings_full,accommodates,INTEGER,,,1,0,IntegerType(),Number of maximum guests listing can accommodate
+listings_full,bathrooms,FLOAT,,,1,0,FloatType(),Number of bathrooms listing has
+listings_full,bedrooms,INTEGER,,,1,0,IntegerType(),Number of bedrooms listing has
+listings_full,beds,INTEGER,,,1,0,IntegerType(),Number of beds listing has
+listings_full,bed_type,VARCHAR,20,,1,0,StringType(),"Bed type available at listing. One of (Airbed, Couch, Futon, Pull-out Sofa, Real Bed)"
+listings_full,amenities,TEXT,,,1,0,StringType(),"Text array of all the amenities available at listing such as TV, wifi, air conditioning, etc."
+listings_full,square_feet,INTEGER,,,1,0,IntegerType(),Square footage of listing
+listings_full,price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Price per night of booking or reservation
+listings_full,weekly_price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Price per week of booking or reservation
+listings_full,monthly_price,NUMERIC,,"(8,2)  ",1,0,FloatType(),Price per month of booking or reservation
+listings_full,security_deposit,NUMERIC,,"(8,2)  ",1,0,FloatType(),Security deposit fee due upon booking
+listings_full,cleaning_fee,NUMERIC,,"(8,2)  ",1,0,FloatType(),Cleaning fee for listing
+listings_full,guests_included,INTEGER,,,1,0,IntegerType(),Number of guests that the base price covers before the guests_included fee kicks in
+listings_full,extra_people,NUMERIC,,"(8,2)  ",1,0,FloatType(),Cost per extra person past the number of guests included
+listings_full,minimum_nights,INTEGER,,,1,0,IntegerType(),Minimum number of nights for booking
+listings_full,maximum_nights,INTEGER,,,1,0,IntegerType(),Maximum number of nights for booking
+listings_full,minimum_minimum_nights,INTEGER,,,1,0,IntegerType(),Minimum of minimum number of nights for booking for the listing
+listings_full,maximum_minimum_nights,INTEGER,,,1,0,IntegerType(),Maximum of minimum number of nights for booking for the listing
+listings_full,minimum_maximum_nights,INTEGER,,,1,0,IntegerType(),Minimum of maximum number of nights for booking for the listing
+listings_full,maximum_maximum_nights,INTEGER,,,1,0,IntegerType(),Maximum of maximum number of nights for booking for the listing
+listings_full,minimum_nights_avg_ntm,FLOAT,,,1,0,FloatType(),Minimum number of nights for booking for the listing for next twelve months (ntm)
+listings_full,maximum_nights_avg_ntm,FLOAT,,,1,0,FloatType(),Maximum number of nights for booking for the listing for next twelve months (ntm)
+listings_full,calendar_updated,VARCHAR,20,,1,0,StringType(),How long ago calendar for listing was last udpated
+listings_full,has_availability,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if listing has availabilities
+listings_full,availability_30,INTEGER,,,1,0,IntegerType(),Number of nights available in next(last?) 30 days
+listings_full,availability_60,INTEGER,,,1,0,IntegerType(),Number of nights available in next(last?) 60 days
+listings_full,availability_90,INTEGER,,,1,0,IntegerType(),Number of nights available in next(last?) 90 days
+listings_full,availability_365,INTEGER,,,1,0,IntegerType(),Number of nights available in next(last?) 365 days
+listings_full,calendar_last_scraped,DATE,,,1,0,DateType(),Date of latest calendar webscraping from Airbnb website?
+listings_full,number_of_reviews,INTEGER,,,1,0,IntegerType(),Number of reviews for listing
+listings_full,number_of_reviews_ltm,INTEGER,,,1,0,IntegerType(),Number of reviews for listing in the last twelve months (ltm)
+listings_full,first_review,DATE,,,1,0,DateType(),Date of first review for listing
+listings_full,last_review,DATE,,,1,0,DateType(),Date of latest review for listing
+listings_full,review_scores_rating,INTEGER,,,1,0,IntegerType(),Score on how guests felt overall during their stay
+listings_full,review_scores_accuracy,INTEGER,,,1,0,IntegerType(),Score on how guests felt that the listing page represented the space
+listings_full,review_scores_cleanliness,INTEGER,,,1,0,IntegerType(),Score on how guests felt that the space was clean and tidy during their stay
+listings_full,review_scores_checkin,INTEGER,,,1,0,IntegerType(),Score on how guests felt that check-in went through smoothly
+listings_full,review_scores_communication,INTEGER,,,1,0,IntegerType(),Score on how guests felt that the host communicated before and during their stay
+listings_full,review_scores_location,INTEGER,,,1,0,IntegerType(),Score on how guests felt about the location/neighborhood of the listing and how close it was to other desired locations or attractions
+listings_full,review_scores_value,INTEGER,,,1,0,IntegerType(),Score on how guests felt about the overall value of the listing for the prce
+listings_full,requires_license,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if license is needed for guest
+listings_full,license,VARCHAR,255,,1,0,StringType(),Rental license number for host
+listings_full,jurisdiction_names,TEXT,,,1,0,StringType(),Text array of all the jurisdictions that the listing is under
+listings_full,instant_bookable,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if instant booking is available
+listings_full,is_business_travel_ready,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if listing is business travel ready
+listings_full,cancellation_policy,VARCHAR,30,,1,0,StringType(),Cancellation policy for listing
+listings_full,require_guest_profile_picture,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if profile picture is needed for guest
+listings_full,require_guest_phone_verification,BOOLEAN,,,1,0,BooleanType(),Boolean value determining if phone verification is needed for guest
+listings_full,calculated_host_listings_count,INTEGER,,,1,0,IntegerType(),Calculated number of listings under host
+listings_full,calculated_host_listings_count_entire_homes,INTEGER,,,1,0,IntegerType(),Calculated number of entire homes listings under host
+listings_full,calculated_host_listings_count_private_rooms,INTEGER,,,1,0,IntegerType(),Calculated number of private rooms listings under host
+listings_full,calculated_host_listings_count_shared_rooms,INTEGER,,,1,0,IntegerType(),Calculated number of shared rooms listings under host
+listings_full,reviews_per_month,FLOAT,,,1,0,FloatType(),Average number of reviews per month for listing
