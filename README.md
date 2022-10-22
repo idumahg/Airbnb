@@ -33,3 +33,6 @@ Therefore, I had to use Random Forest Regressor. With Random forest, we had a r2
 - There is more variation in the price for Entire home listings. You have higher average prices (in the range of $460) in the months of April — August, and cheaper average prices (less than $340) in the months of January, February, November and December.
 - The features that are of more importance in predicting the price of a listing are: `calculated_host_listings_count`, `host_total_listings_count`, 
 `calculated_host_listings_count_entire_homes` and `host_listings_count`.
+
+A non-technical discussion about my result can be found on my Medium post, `https://medium.com/@idumahg/what-does-the-data-say-about-airbnb-in-austin-d1df8bb60257`
+
