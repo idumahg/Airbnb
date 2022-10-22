@@ -1,7 +1,7 @@
 # What does the data say about AirBnB in Austin.
 _________________________________________________
 In this project, I used the CRISP-DM Process to analyse Austin Airbnb data from September 18, 2019 to October 8, 2020. 
-The data is sources from the following website `https://www.kaggle.com/datasets/clnguyen/austinairbnbs20191112` 
+The data is sourced from the kaggle [Austin dataset](https://www.kaggle.com/datasets/clnguyen/austinairbnbs20191112)
 The questions I want to explore using this dataset are the following:
 
 1. Is there any seasonal variability in prices and room availability?
@@ -34,5 +34,5 @@ Therefore, I had to use Random Forest Regressor. With Random forest, we had a r2
 - The features that are of more importance in predicting the price of a listing are: `calculated_host_listings_count`, `host_total_listings_count`, 
 `calculated_host_listings_count_entire_homes` and `host_listings_count`.
 
-A non-technical discussion about my result can be found on my Medium post, `https://medium.com/@idumahg/what-does-the-data-say-about-airbnb-in-austin-d1df8bb60257`
+A non-technical discussion about my result can be found on my [Medium](https://medium.com/@idumahg/what-does-the-data-say-about-airbnb-in-austin-d1df8bb60257) post.
 
